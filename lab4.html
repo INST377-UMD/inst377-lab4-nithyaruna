@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <title> INST377 - LAB4 </title>
+    <style>
+        body {
+            background-color: lightpink;
+            
+        }
+        .block {
+            width: 49%;
+            margin: 10px 0;
+            
+        }
+        .second_block {
+            width: 49%;
+            float: right;
+        }
+
+        #block {
+            padding: 10px;
+            /* margin: 10px; */
+            border-radius: 10px;
+            border: solid white 3px;
+            text-align: center;
+            background-color: orchid;
+        }
+
+        #second_block {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: solid white 3px;
+            text-align: center;
+            background-color: orchid;
+
+        }
+
+        #third_block {
+            padding: 10px;
+            margin: 20px;
+            border-radius: 10px;
+            border: solid white 3px;
+            text-align: center;
+            background-color: orchid;
+
+        }
+
+        #fourth_block {
+            padding: 10px;
+            margin: 20px;
+            border-radius: 10px;
+            border: solid white 3px;
+            text-align: center;
+            background-color: orchid;
+
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-heading">INST377 LAB 4</h1>
+
+    <div class="block" id="block">
+        <form id="name-form" onsubmit="return alertUser(event)">
+            <label>Name: </label>
+            <input type="text" id="name">
+            <button type="submit">Alert Me!</button>
+        </form>
+    </div>
+
+    <div class="block" id="second_block">
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+
+    <div class="block" id="fourth_block">
+        <button onclick="addText()">Add Text</button>
+    </div>
+
+    <div class="block" id="third_block">
+        <form id="text-tester-form" onsubmit="validateText(event)">
+            <input type="text" id="text-input">
+            <button type="submit">Validate Text</button>
+        </form>
+    </div>
+</body>
+
+    <script>
+        function alertUser(event) {
+            const name = document.getElementById('name').value;
+            alert(`Hi ${name}!`);
+        }
+
+        function changeColor() {
+        if (document.body.style.backgroundColor === 'lightpink') {
+            document.body.style.backgroundColor = 'lightblue';
+        } else {
+            document.body.style.backgroundColor = 'lightpink';
+        } 
+    }
+
+
+        /*function alertUser(event) {
+            alert(`Hi` + document.firstName.alertUser.value + '!');
+        }
+
+        function changeColor() {
+            if (document.body.style.backgroundColor = 'lightpink') {
+                document.body.style.backgroundColor = 'lightblue';
+            } else {
+                document.body.style.backgroundColor ='lightpink';
+            }
+        }
+        */
+
+        function validateText(event) {
+            event.preventDefault();
+            const text = document.getElementById('text-input').value;
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            if (validation.test(text)) {
+                alert('The text is not valid!');
+            } else {
+                alert('The text is valid.');
+            }
+        }
+
+        function addText() {
+            document.getElementById('main-heading').innerHTML = 'INST377 - LAB4 - Add Text';
+        }
+    </script>
+</body>
+</html>
